@@ -1,0 +1,388 @@
+{
+  "id": "7ac0hGWNGHnpotgy",
+  "name": "[Reward Rule]sa1219 Selecting All Five Champion Duos Reward Rule copy",
+  "nodes": [
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "48372669-fb73-4419-abd9-8cf2099849d9",
+              "leftValue": "={{ $json.body.selectionCount }}",
+              "rightValue": 5,
+              "operator": {
+                "type": "number",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -32,
+        -64
+      ],
+      "id": "c6a059d0-64e4-46e1-88fa-bef66d6064d8",
+      "name": "Check"
+    },
+    {
+      "parameters": {
+        "content": "# Configure\nConfig reward reason",
+        "height": 248,
+        "width": 224,
+        "color": 4
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        352,
+        -160
+      ],
+      "typeVersion": 1,
+      "id": "82d07405-4431-41eb-b8ca-67f251e7c710",
+      "name": "Sticky Note4"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "ca3685b3-1f7f-44ed-a0cd-4f7ba414f068",
+              "name": "Gift Arrangement ID",
+              "value": "GI0000038",
+              "type": "string"
+            },
+            {
+              "id": "1271f664-8c91-490a-a89b-9da90ba58aba",
+              "name": "itemId",
+              "value": "SPA-0018",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        192,
+        -64
+      ],
+      "id": "ba990dd3-1e48-4235-bf90-54143e65b741",
+      "name": "Gift Control"
+    },
+    {
+      "parameters": {
+        "content": "# Configure\nGift mapping",
+        "height": 244,
+        "width": 208,
+        "color": 4
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        144,
+        -144
+      ],
+      "typeVersion": 1,
+      "id": "ed7595d0-f38b-4f3a-9744-9108de2d9ca7",
+      "name": "Sticky Note2"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "http://42.194.234.187:8089/reward/assignment/submit",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ $json }}",
+        "options": {
+          "redirect": {
+            "redirect": {}
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        864,
+        -64
+      ],
+      "id": "434f123d-141e-4442-b946-9a62001baea0",
+      "name": "Gift Redemption",
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "c4faf657-5b5f-4239-8041-95687a7ad1b1",
+              "name": "reward_reason_en",
+              "value": "Participating in Racing-Related Venues",
+              "type": "string"
+            },
+            {
+              "id": "7b7da51a-b623-424f-a348-30d76ddcdc99",
+              "name": "reward_reason_sc",
+              "value": "Participating in Racing-Related Venues",
+              "type": "string"
+            },
+            {
+              "id": "f1901074-3b7b-4ddd-8e69-9db59c442641",
+              "name": "reward_reason_tc",
+              "value": "Participating in Racing-Related Venues",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        416,
+        -64
+      ],
+      "id": "133a5138-0683-409c-8a79-5e4314dca347",
+      "name": "Edit message"
+    },
+    {
+      "parameters": {
+        "mode": "raw",
+        "jsonOutput": "={ \"giftCode\": \"{{ $('Gift Control').item.json['Gift Arrangement ID'] }}\",\n  \"customerId\": \"{{ $('Webhook').item.json.body.customerId }}\",\n  \"eventReasonEn\": \"{{ $json.reward_reason_en }}\",\n  \"eventReasonSc\": \"{{ $json.reward_reason_sc }}\",\n  \"eventReasonTc\": \"{{ $json.reward_reason_tc }}\",\n  \"actionType\": \"REDEEM\"\n} ",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        640,
+        -64
+      ],
+      "id": "dffd75b8-1aef-46d5-8a6c-05b102465181",
+      "name": "Edit Message"
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "1e89862d-f27d-4ed8-a3f5-a38764e3d6ec",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        -256,
+        -64
+      ],
+      "id": "bca50f96-1164-4084-b0e9-41c136428c2a",
+      "name": "Webhook",
+      "webhookId": "1e89862d-f27d-4ed8-a3f5-a38764e3d6ec"
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={\n\"status\": \"200\",\n\"message\": \"success\",\n\"timestamp\": {{ Date.now() }},\n\"data\": {\n\"itemId\": \"{{ $('Gift Control').item.json.itemId }}\"\n}\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.4,
+      "position": [
+        1232,
+        -176
+      ],
+      "id": "6abc5d1e-44c2-4a23-a311-f61ebbe5886d",
+      "name": "Respond to Webhook",
+      "executeOnce": true
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.4,
+      "position": [
+        1232,
+        16
+      ],
+      "id": "5eeec292-a8a0-4589-bf45-0b5a79452a05",
+      "name": "Error respond"
+    },
+    {
+      "parameters": {
+        "topic": "custcn-event",
+        "sendInputData": false,
+        "headersUi": {
+          "headerValues": [
+            {}
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.kafka",
+      "typeVersion": 1,
+      "position": [
+        1040,
+        -304
+      ],
+      "id": "6ffa1a7d-cdcc-4230-994c-6820c939edc0",
+      "name": "Message Sending Reward",
+      "credentials": {
+        "kafka": {
+          "id": "1u8OLqa1ZBWOPJdI",
+          "name": "HKJC Tencent Demo (SIT)"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "raw",
+        "jsonOutput": "={   \"template_code\": \"virtual_item_earned\",   \"customer_id\": \"{{ $('Webhook').item.json.body.customerId }}\",   \"data\":      {} } ",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        832,
+        -208
+      ],
+      "id": "a9b42a8f-37de-4452-a619-280a08dcaf00",
+      "name": "Edit kafka message"
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={\n\"status\": \"200\",\n\"message\": \"Condition not satisfied.\",\n\"timestamp\": {{ Date.now() }},\n\"data\": {}\n}",
+        "options": {
+          "responseCode": 200
+        }
+      },
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.4,
+      "position": [
+        224,
+        128
+      ],
+      "id": "43d2e2a3-d115-478e-9a21-8033043c143d",
+      "name": "Condition not satisfied"
+    }
+  ],
+  "connections": {
+    "Check": {
+      "main": [
+        [
+          {
+            "node": "Gift Control",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Condition not satisfied",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Gift Control": {
+      "main": [
+        [
+          {
+            "node": "Edit message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Gift Redemption": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Edit kafka message",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Error respond",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit message": {
+      "main": [
+        [
+          {
+            "node": "Edit Message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Message": {
+      "main": [
+        [
+          {
+            "node": "Gift Redemption",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Check",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit kafka message": {
+      "main": [
+        [
+          {
+            "node": "Message Sending Reward",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "triggerCount": 1,
+  "versionId": "336c0954-4033-46ef-8575-687e4ba48a7f",
+  "owner": {
+    "type": "personal",
+    "projectId": "i2k4LUciPHEo0J1J",
+    "projectName": "SIT DELOITTE <tye@deloittecn.com.cn>",
+    "personalEmail": "tye@deloittecn.com.cn"
+  },
+  "parentFolderId": "VURN0jt4q82Y2VDD",
+  "isArchived": false
+}

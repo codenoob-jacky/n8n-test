@@ -1,0 +1,134 @@
+{
+  "tags": [
+    {
+      "id": "e72n1RumrZSHY3Qg",
+      "name": "SIT"
+    },
+    {
+      "id": "T8rHmsfZ9cIWN36a",
+      "name": "Demo"
+    }
+  ],
+  "mappings": [
+    {
+      "workflowId": "aq26ImObk8hJkfKT",
+      "tagId": "e72n1RumrZSHY3Qg"
+    },
+    {
+      "workflowId": "aq26ImObk8hJkfKT",
+      "tagId": "T8rHmsfZ9cIWN36a"
+    },
+    {
+      "workflowId": "LcLFoadVqp3VZL64",
+      "tagId": "e72n1RumrZSHY3Qg"
+    },
+    {
+      "workflowId": "LcLFoadVqp3VZL64",
+      "tagId": "T8rHmsfZ9cIWN36a"
+    },
+    {
+      "workflowId": "vbblaC6FEl6WcFEE",
+      "tagId": "e72n1RumrZSHY3Qg"
+    },
+    {
+      "workflowId": "vbblaC6FEl6WcFEE",
+      "tagId": "T8rHmsfZ9cIWN36a"
+    },
+    {
+      "workflowId": "SPWmh6M3nWPVxjFu",
+      "tagId": "e72n1RumrZSHY3Qg"
+    },
+    {
+      "workflowId": "YsKbA5z9K32RRTgY",
+      "tagId": "e72n1RumrZSHY3Qg"
+    },
+    {
+      "workflowId": "L7sev4YH3MTvL8xT",
+      "tagId": "e72n1RumrZSHY3Qg"
+    },
+    {
+      "workflowId": "c7FrapJ6YT44lqhc",
+      "tagId": "T8rHmsfZ9cIWN36a"
+    },
+    {
+      "workflowId": "dov8nxqq0FHOQC9k",
+      "tagId": "T8rHmsfZ9cIWN36a"
+    },
+    {
+      "workflowId": "VS0QYTwzrAQARepL",
+      "tagId": "T8rHmsfZ9cIWN36a"
+    },
+    {
+      "workflowId": "sTR67z47WlTvBMXu",
+      "tagId": "T8rHmsfZ9cIWN36a"
+    },
+    {
+      "workflowId": "uKmUwf2txbQjiTdh",
+      "tagId": "T8rHmsfZ9cIWN36a"
+    },
+    {
+      "workflowId": "3WAd8netBtTzjUGZ",
+      "tagId": "T8rHmsfZ9cIWN36a"
+    },
+    {
+      "workflowId": "nCnehUKkVayTdYSY",
+      "tagId": "e72n1RumrZSHY3Qg"
+    },
+    {
+      "workflowId": "nCnehUKkVayTdYSY",
+      "tagId": "T8rHmsfZ9cIWN36a"
+    },
+    {
+      "workflowId": "aYzFrCSDilaYqYkR",
+      "tagId": "e72n1RumrZSHY3Qg"
+    },
+    {
+      "workflowId": "aCoO14yBCgK0F7b4",
+      "tagId": "e72n1RumrZSHY3Qg"
+    },
+    {
+      "workflowId": "FHwSqVCA8MmEri4f",
+      "tagId": "e72n1RumrZSHY3Qg"
+    },
+    {
+      "workflowId": "hVOsrDOC3zWw6M1O",
+      "tagId": "e72n1RumrZSHY3Qg"
+    },
+    {
+      "workflowId": "hSx0jBhebr0DIZ0t",
+      "tagId": "e72n1RumrZSHY3Qg"
+    },
+    {
+      "workflowId": "xghs7RK2z32hpzYY",
+      "tagId": "T8rHmsfZ9cIWN36a"
+    },
+    {
+      "workflowId": "DXubJ951RdnXTcOR",
+      "tagId": "e72n1RumrZSHY3Qg"
+    },
+    {
+      "workflowId": "sIyZlxOmhCR5sRFe",
+      "tagId": "e72n1RumrZSHY3Qg"
+    },
+    {
+      "workflowId": "hkVq8h9VhBMQvKR5",
+      "tagId": "e72n1RumrZSHY3Qg"
+    },
+    {
+      "workflowId": "4D26nUeNvMHrWu72",
+      "tagId": "e72n1RumrZSHY3Qg"
+    },
+    {
+      "workflowId": "pUDkxQYOuP7CzWJd",
+      "tagId": "e72n1RumrZSHY3Qg"
+    },
+    {
+      "workflowId": "dJK5lEJAx0yzJObl",
+      "tagId": "e72n1RumrZSHY3Qg"
+    },
+    {
+      "workflowId": "t4PbBpWsZl8uTe56",
+      "tagId": "e72n1RumrZSHY3Qg"
+    }
+  ]
+}
